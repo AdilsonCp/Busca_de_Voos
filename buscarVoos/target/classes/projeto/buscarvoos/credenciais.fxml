@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="projeto.buscarvoos.CredenciaisController">
+   <children>
+      <Label layoutX="39.0" layoutY="45.0" text="Informações pessoais" />
+      <TextField layoutX="39.0" layoutY="86.0" promptText="Nome Completo" />
+      <TextField layoutX="220.0" layoutY="86.0" promptText="CPF (Apenas Números)" />
+      <Label layoutX="39.0" layoutY="200.0" text="Informações para contato" />
+      <TextField layoutX="39.0" layoutY="237.0" promptText="Celular ou telefone" />
+      <TextField layoutX="198.0" layoutY="237.0" promptText="CEP" />
+      <TextField layoutX="198.0" layoutY="308.0" promptText="Endereço" />
+      <TextField layoutX="383.0" layoutY="308.0" promptText="Complemento" />
+      <TextField layoutX="383.0" layoutY="237.0" promptText="Número" />
+      <ComboBox fx:id="cbDia" layoutX="39.0" layoutY="131.0" prefWidth="150.0" />
+      <ComboBox fx:id="cbMes" layoutX="198.0" layoutY="131.0" prefWidth="150.0" />
+      <ComboBox fx:id="cbAno" layoutX="360.0" layoutY="131.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

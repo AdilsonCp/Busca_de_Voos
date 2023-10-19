@@ -1,4 +1,4 @@
-package projeto.projetointerdisciplinar;
+package projeto.buscarvoos;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,8 +17,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("inicio"), 640, 480);
+        scene = new Scene(loadFXML("inicio"));
         stage.setScene(scene);
+        stage.setTitle("Buscar por Voos");
         stage.show();
     }
 
