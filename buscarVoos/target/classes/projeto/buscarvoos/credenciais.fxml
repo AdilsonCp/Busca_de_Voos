@@ -5,20 +5,33 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="projeto.buscarvoos.CredenciaisController">
+<AnchorPane id="AnchorPane" prefHeight="507.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto.buscarvoos.CredenciaisController">
    <children>
-      <Label layoutX="39.0" layoutY="45.0" text="Informações pessoais" />
-      <TextField layoutX="39.0" layoutY="86.0" promptText="Nome Completo" />
-      <TextField layoutX="220.0" layoutY="86.0" promptText="CPF (Apenas Números)" />
-      <Label layoutX="39.0" layoutY="200.0" text="Informações para contato" />
-      <TextField layoutX="39.0" layoutY="237.0" promptText="Celular ou telefone" />
-      <TextField layoutX="198.0" layoutY="237.0" promptText="CEP" />
-      <TextField layoutX="198.0" layoutY="308.0" promptText="Endereço" />
-      <TextField layoutX="383.0" layoutY="308.0" promptText="Complemento" />
-      <TextField layoutX="383.0" layoutY="237.0" promptText="Número" />
-      <ComboBox fx:id="cbDia" layoutX="39.0" layoutY="131.0" prefWidth="150.0" />
-      <ComboBox fx:id="cbMes" layoutX="198.0" layoutY="131.0" prefWidth="150.0" />
-      <ComboBox fx:id="cbAno" layoutX="360.0" layoutY="131.0" prefWidth="150.0" />
+      <Label layoutX="440.0" layoutY="62.0" text="CPF (Apenas números):" />
+      <TextField layoutX="26.0" layoutY="86.0" prefHeight="25.0" prefWidth="391.0" />
+      <TextField layoutX="440.0" layoutY="86.0" />
+      <Label layoutX="26.0" layoutY="213.0" text="Telefone/Celular:" />
+      <TextField layoutX="26.0" layoutY="237.0" />
+      <TextField layoutX="185.0" layoutY="237.0" prefHeight="25.0" prefWidth="101.0" />
+      <TextField layoutX="302.0" layoutY="237.0" prefHeight="25.0" prefWidth="287.0" />
+      <TextField layoutX="161.0" layoutY="308.0" prefHeight="25.0" prefWidth="259.0" />
+      <TextField layoutX="26.0" layoutY="308.0" prefHeight="25.0" prefWidth="111.0" />
+      <ComboBox fx:id="cbDia" layoutX="255.0" layoutY="144.0" prefHeight="25.0" prefWidth="60.0" promptText="Dia" />
+      <ComboBox fx:id="cbMes" layoutX="327.0" layoutY="144.0" prefHeight="25.0" prefWidth="101.0" promptText="Mês" />
+      <ComboBox fx:id="cbAno" layoutX="440.0" layoutY="144.0" prefHeight="25.0" prefWidth="73.0" promptText="Ano" />
+      <Label layoutX="26.0" layoutY="62.0" text="Nome Completo:" />
+      <ComboBox layoutX="26.0" layoutY="144.0" prefWidth="150.0" />
+      <Label layoutX="255.0" layoutY="120.0" text="Data de Nascimento:" />
+      <Label layoutX="28.0" layoutY="120.0" text="Gênero:" />
+      <Label layoutX="185.0" layoutY="213.0" text="CEP:" />
+      <Label layoutX="302.0" layoutY="213.0" text="Endereço:" />
+      <Label layoutX="26.0" layoutY="283.0" text="CEP:" />
+      <Label layoutX="159.0" layoutY="283.0" text="Complemento:" />
+      <TextField layoutX="26.0" layoutY="371.0" prefHeight="25.0" prefWidth="182.0" />
+      <Label layoutX="28.0" layoutY="346.0" text="Bairro:" />
+      <TextField layoutX="222.0" layoutY="371.0" prefHeight="25.0" prefWidth="221.0" />
+      <Label layoutX="224.0" layoutY="346.0" text="Cidade:" />
+      <Label layoutX="464.0" layoutY="347.0" text="Estado:" />
+      <ComboBox fx:id="cbDia1" layoutX="464.0" layoutY="371.0" prefHeight="25.0" prefWidth="60.0" promptText="UF" />
    </children>
 </AnchorPane>
