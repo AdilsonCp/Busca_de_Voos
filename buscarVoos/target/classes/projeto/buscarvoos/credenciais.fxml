@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -33,5 +34,9 @@
       <Label layoutX="224.0" layoutY="346.0" text="Cidade:" />
       <Label layoutX="464.0" layoutY="347.0" text="Estado:" />
       <ComboBox fx:id="cbDia1" layoutX="464.0" layoutY="371.0" prefHeight="25.0" prefWidth="60.0" promptText="UF" />
+      <Label layoutX="27.0" layoutY="421.0" text="E-mail:" />
+      <TextField layoutX="26.0" layoutY="445.0" prefHeight="25.0" prefWidth="182.0" />
+      <PasswordField layoutX="253.0" layoutY="445.0" prefHeight="25.0" prefWidth="199.0" />
+      <Label layoutX="255.0" layoutY="421.0" text="Senha:" />
    </children>
 </AnchorPane>

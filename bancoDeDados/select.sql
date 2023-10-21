@@ -5,3 +5,4 @@ select  pessoas.nome, pessoas.cpf, pessoas.genero, pessoas.data_nascimento,
 		from pessoas inner join contato on pessoas.pessoa_id = contato.pessoa_id
 					 inner join endereco on pessoas.pessoa_id = endereco.pessoa_id
 					 inner join credenciais on pessoas.pessoa_id = credenciais.pessoa_id;
+                     
