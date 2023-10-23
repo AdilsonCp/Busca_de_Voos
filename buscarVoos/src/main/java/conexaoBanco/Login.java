@@ -17,7 +17,7 @@ public class Login {
         Connection conexao = new BDConexaoMySQL().getConnection();
 
         //Preparar a consulta
-        String select = "SELECT * FROM login WHERE email = ? "
+        String select = "SELECT * FROM credenciais WHERE email = ? "
                 + "AND senha = ?";
         try {
             PreparedStatement ps = conexao.prepareStatement(select);
@@ -40,6 +40,8 @@ public class Login {
 
         } catch (SQLException ex) {
             System.out.println(ex);
+        } catch(NullPointerException ex) {
+            System.out.println("Campo vázio");
         }
         return false;
     }

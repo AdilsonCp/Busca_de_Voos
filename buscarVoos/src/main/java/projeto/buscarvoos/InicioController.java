@@ -68,6 +68,9 @@ public class InicioController implements Initializable {
     
     @FXML
     public void logar() throws IOException{
+        System.out.println("Apertado");
+        
+        
         String email = textUsuario.getText();
         String senha = textSenha.getText();
         
