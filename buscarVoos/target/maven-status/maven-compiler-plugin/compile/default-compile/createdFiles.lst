@@ -1,7 +1,9 @@
+conexaoBanco\Login.class
 conexaoBanco\BDConexaoMySQL.class
 projeto\buscarvoos\RotasController.class
 conexaoBanco\BDConexao.class
 datas\Dia.class
+projeto\buscarvoos\Rotas.class
 datas\Ano.class
 projeto\buscarvoos\CredenciaisController.class
 module-info.class
@@ -9,3 +11,4 @@ projeto\buscarvoos\App.class
 projeto\buscarvoos\InicioController.class
 datas\CarregarDatas.class
 datas\Mes.class
+projeto\buscarvoos\PesquisaVooController.class

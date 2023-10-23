@@ -17,7 +17,7 @@ public class BDConexaoMySQL extends BDConexao {
         this.driver = "com.mysql.cj.jdbc.Driver";
         this.porta = 3306;
         this.servidor = "localhost";
-        this.bd = "empresa";
+        this.bd = "cadastro";
         this.usuario = "root";
         this.senha = "130521";
         //ifsp
