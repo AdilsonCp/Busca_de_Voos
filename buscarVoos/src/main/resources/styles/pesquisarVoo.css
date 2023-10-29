@@ -1,0 +1,14 @@
+
+.rotas-item{
+    -fx-background-color: #ADD8E6;
+    color: #000;
+}
+
+.rota-item-hbox{
+    background-color: rgba(255, 0, 0, 0.5);
+    -fx-border-radius: 30;
+}
+
+.list-rotas{
+    -fx-background-color: #4169E1;
+}

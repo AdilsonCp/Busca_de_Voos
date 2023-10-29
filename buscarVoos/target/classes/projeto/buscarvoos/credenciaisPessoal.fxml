@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="paneInfoPessoa" prefHeight="157.0" prefWidth="664.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto.buscarvoos.CredenciaisPessoalController">
+   <children>
+      <Label layoutX="432.0" layoutY="14.0" text="CPF (Apenas números):" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="textNome" layoutX="14.0" layoutY="38.0" prefHeight="25.0" prefWidth="391.0" />
+      <TextField fx:id="textCpf" layoutX="432.0" layoutY="38.0" />
+      <ComboBox fx:id="cbDia" layoutX="210.0" layoutY="107.0" prefHeight="25.0" prefWidth="60.0" promptText="Dia" style="-fx-background-color: white;" />
+      <ComboBox fx:id="cbMes" layoutX="282.0" layoutY="107.0" prefHeight="25.0" prefWidth="101.0" promptText="Mês" style="-fx-background-color: white;" />
+      <ComboBox fx:id="cbAno" layoutX="395.0" layoutY="107.0" prefHeight="25.0" prefWidth="73.0" promptText="Ano" style="-fx-background-color: white;" />
+      <Label layoutX="14.0" layoutY="14.0" text="Nome Completo:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <ComboBox fx:id="cbGenero" layoutX="14.0" layoutY="107.0" prefWidth="150.0" style="-fx-background-color: white;" />
+      <Label layoutX="210.0" layoutY="83.0" text="Data de Nascimento:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="14.0" layoutY="83.0" text="Gênero:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+   </children>
+</Pane>

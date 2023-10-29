@@ -16,9 +16,9 @@ public class Rotas {
     private String cidadeOrigem;
     private String paisDestino;
     private String cidadeDestino;
-    private String preco;
+    private double preco;
 
-    public Rotas(String empresa, String dataPartida, String paisOrigem, String cidadeOrigem, String paisDestino, String cidadeDestino, String preco) {
+    public Rotas(String empresa, String dataPartida, String paisOrigem, String cidadeOrigem, String paisDestino, String cidadeDestino, double preco) {
         this.empresa = empresa;
         this.dataPartida = dataPartida;
         this.paisOrigem = paisOrigem;
@@ -52,7 +52,7 @@ public class Rotas {
         return cidadeDestino;
     }
 
-    public String getPreco() {
+    public double getPreco() {
         return preco;
     }
     
