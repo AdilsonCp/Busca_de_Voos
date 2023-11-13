@@ -1,0 +1,16 @@
+
+.btn-cadastrar{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+
+}
+
+.btn-cadastrar:hover{
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}

@@ -4143,7 +4143,7 @@ insert into rota_aereas(empresa,data_horario_partida,cidade_origem, pais_origem,
 
 ######################################### POLTROLNAS ###########################
 insert into poltrona(id_rotas_aereas, a1, a2, a3, a4, a5, a6, b1, b2, b3, b4, b5, b6, c1, c2, c3, c4, c5, c6, d1, d2, d3, d4, d5, d6) values
-	(504, null, null, null, null, null, null, 1, 1, 1, 1, 1, null, null, null, null, null, 1, 1, 1, 1, 1, 1, 1, 1);
+	(504, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
 ########################## PASSAGEIROS ############################
 insert into passageiros(id_rotas_aereas, pessoa_id, assento) values
@@ -4151,6 +4151,7 @@ insert into passageiros(id_rotas_aereas, pessoa_id, assento) values
 
 select *from passageiros;
 select *from poltrona;
+select *from rota_aereas where id_rotas_aereas = 337;
 
 
 

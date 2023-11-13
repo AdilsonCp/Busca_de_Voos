@@ -9,11 +9,11 @@
 <HBox fx:id="vboxRotas" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="992.0" style="-fx-background-radius: 10; -fx-background-insets: 1; -fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label prefHeight="48.0" prefWidth="228.0" styleClass="rotas-item" text="empresa" />
-      <Label prefHeight="48.0" prefWidth="132.0" styleClass="rotas-item" text="2023-07-01 20:51:00" />
-      <Label prefHeight="48.0" prefWidth="116.0" styleClass="rotas-item" text="pais_origem" />
-      <Label prefHeight="48.0" prefWidth="129.0" styleClass="rotas-item" text="cidade_origem" />
-      <Label prefHeight="48.0" prefWidth="120.0" styleClass="rotas-item" text="pais_destino" />
-      <Label prefHeight="48.0" prefWidth="131.0" styleClass="rotas-item" text="cidade_destino" />
+      <Label prefHeight="48.0" prefWidth="136.0" styleClass="rotas-item" text="2023-07-01 20:51:00" />
+      <Label prefHeight="48.0" prefWidth="120.0" styleClass="rotas-item" text="pais_origem" />
+      <Label prefHeight="48.0" prefWidth="133.0" styleClass="rotas-item" text="cidade_origem" />
+      <Label prefHeight="48.0" prefWidth="124.0" styleClass="rotas-item" text="pais_destino" />
+      <Label prefHeight="48.0" prefWidth="135.0" styleClass="rotas-item" text="cidade_destino" />
       <Label prefHeight="48.0" prefWidth="72.0" styleClass="rotas-item" text="11000.60" />
       <HBox prefHeight="48.0" prefWidth="75.0">
          <children>

@@ -11,8 +11,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import conexaoBanco.Login;
+import javafx.stage.Screen;
 
-public class InicioController implements Initializable {
+
+public class LoginControlle implements Initializable {
 
     @FXML
     private Button btncadLogin;
@@ -20,12 +22,16 @@ public class InicioController implements Initializable {
     private TextField textUsuario;
     @FXML
     private TextField textSenha;
+    
+    
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
     } 
     
     @FXML
@@ -60,6 +66,16 @@ public class InicioController implements Initializable {
         //Criar uma nova cena
         Scene cena = new Scene(tela.load());
         
+        stage.setFullScreen(true);
+        
+        // Defina a posição da nova janela para o centro da tela principal
+        Screen sc = Screen.getPrimary();
+        double larguraTela = sc.getBounds().getWidth();
+        double alturaTela = sc.getBounds().getHeight();
+        stage.setX((larguraTela - 1038) / 2); // Defina a posição X
+        stage.setY((alturaTela - 601) / 2);  // Defina a posição Y
+        
+        
         //Exibir a cena
         stage.setScene(cena);
         stage.setTitle("Busca");
@@ -82,6 +98,24 @@ public class InicioController implements Initializable {
         }
         else{
             System.out.println("Acesso negado");
+        }
+        
+        /*Janela de teste*/
+        if(email.equals("teste")){
+            //Trocar a cena
+            //Pode usar qualquer componente vinculado a classe
+            Stage stage = (Stage) btncadLogin.getScene().getWindow();
+
+            //Carregar a cena que desejamos exibir
+            FXMLLoader tela = new FXMLLoader(App.class.getResource("home.fxml"));
+
+            //Criar uma nova cena
+            Scene cena = new Scene(tela.load());
+
+            //Exibir a cena
+            stage.setScene(cena);
+            stage.setTitle("teste");
+            stage.show();
         }
         
     }

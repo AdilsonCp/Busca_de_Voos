@@ -7,14 +7,17 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import model.PanesCadastrarController;
 
 /**
  * FXML Controller class
  *
  * @author adils
  */
-public class CredenciasContatoController implements Initializable {
+public class CredenciasContatoController extends PanesCadastrarController implements Initializable  {
    @FXML
     private ComboBox<String> cbUF;
     @FXML
@@ -31,6 +34,25 @@ public class CredenciasContatoController implements Initializable {
     private TextField textBairro;
     @FXML
     private TextField textCidade;
+    @FXML
+    private Label avisoTelefone;
+    @FXML
+    private Label avisoCep;
+    @FXML
+    private Label avisoEndereco;
+    @FXML
+    private Label avisoNumero;
+    @FXML
+    private Label avisoComplemento;
+    @FXML
+    private Label avisoBairro;
+    @FXML
+    private Label avisoCidade;
+    @FXML
+    private Label avisoUf;
+
+    
+    Pessoa pessoa = new Pessoa();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -51,5 +73,75 @@ public class CredenciasContatoController implements Initializable {
         // Associe a lista de gêneros ao ComboBox
         cbUF.setItems(uf);
     }
+
+    @Override
+    public int validarCampos() {
+        pessoa.setTelefone(textTelefone.getText());
+        pessoa.setCep(textCEP.getText());
+        pessoa.setEndereco(textEndereco.getText());
+        pessoa.setNumero(textNumero.getText());
+        pessoa.setComplemento(textComplemento.getText());
+        pessoa.setBairro(textBairro.getText());
+        pessoa.setCidade(textCidade.getText());
+        if(cbUF.getValue() != null){
+            pessoa.setUf(cbUF.getValue());
+        
+            if(pessoa.getTelefone() && pessoa.getCep() && pessoa.getEndereco() &&
+                    pessoa.getNumero() && pessoa.getComplemento() && 
+                    pessoa.getBairro() && pessoa.getCidade()){
+                return 1;
+            }
+            else return 0;
+        }
+        else return 0;
+        
+    }
+    @Override
+    public void avisos(){
+        if(!pessoa.getTelefone())configAvisos(avisoTelefone, 
+                "Telefone Inválido", true);
+        else configAvisos(avisoTelefone, null, false);
+        
+        if(!pessoa.getCep())configAvisos(avisoCep, 
+                "CEP Inválido", true);
+        else configAvisos(avisoCep, null, false);
+        
+        if(!pessoa.getEndereco())configAvisos(avisoEndereco, 
+                "Endereco Inválido ", true);
+        else configAvisos(avisoEndereco, null, false);
+        
+        if(!pessoa.getNumero())configAvisos(avisoNumero, 
+                "Numero Incorreto", true);
+        else configAvisos(avisoNumero, null, false);
+        
+        if(!pessoa.getComplemento())configAvisos(avisoComplemento, 
+                "Complemento Incorreto", true); 
+        else configAvisos(avisoComplemento, null, false);
+        
+        if(!pessoa.getBairro())configAvisos(avisoBairro, 
+                "Bairro Incorreto", true);
+        else configAvisos(avisoBairro, null, false);
+        
+        if(!pessoa.getCidade())configAvisos(avisoCidade, 
+                "Cidade Incorreto", true);
+        else configAvisos(avisoCidade, null, false);
+        
+        if(cbUF.getValue() == null)configAvisos(avisoUf, 
+                "Campo vázio", true);
+        else configAvisos(avisoUf, null, false);
+    }
+
+    @Override
+    public void configAvisos(Label labelAviso, String aviso, boolean flag) {
+       try{
+            labelAviso.setText(aviso);
+            labelAviso.setTextFill(Color.BLACK);
+            labelAviso.setVisible(flag); 
+       }catch(NullPointerException ex){
+            labelAviso.setVisible(false);
+       }    
+    }
+
+
     
 }

@@ -4,11 +4,15 @@
  */
 package projeto.buscarvoos;
 
+import datas.ValidaFormataData;
+
 /**
  *
  * @author adils
  */
 public class Pessoa {
+    ValidaFormataData data = new ValidaFormataData();
+    
     private String nome;
     private String cpf;
     private String genero;
@@ -57,7 +61,7 @@ public class Pessoa {
     }
 
     public boolean getCpf() {
-        if(this.cpf.length() == 11)return true;
+        if(this.cpf.length() == 11 && this.cpf.matches("^[0-9]+$"))return true;
         else return false;
     }
 
@@ -65,7 +69,7 @@ public class Pessoa {
         this.cpf = cpf;
     }
 
-    /*public String getGenero() {
+    public String getGenero() {
         return genero;
     }
 
@@ -95,10 +99,10 @@ public class Pessoa {
 
     public void setAnoNasc(String anoNasc) {
         this.anoNasc = anoNasc;
-    }*/
-
+    }
+    
     public boolean getTelefone() {
-        if(this.telefone.matches("^[0-9]$") && 
+        if(this.telefone.matches("^[0-9]+$") && 
                 this.telefone.length() == 11)return true;
         else return false;
     }
@@ -108,7 +112,7 @@ public class Pessoa {
     }
 
     public boolean getCep() {
-        if(this.cep.matches("^[0-9]$") && 
+        if(this.cep.matches("^[0-9]+$") && 
                 this.cep.length() ==8)return true;
         else return false;
     }
@@ -118,9 +122,9 @@ public class Pessoa {
     }
 
     public boolean getEndereco() {
-        if(this.endereco.matches("^[a-zA-Z0-9]$") && 
-                this.endereco.length() <=100 && this.endereco.length() >= 4)
+        if(this.endereco.length() >= 4 && this.endereco.length() <=100){
             return true;
+        }
         else return false;
     }
 
@@ -129,9 +133,10 @@ public class Pessoa {
     }
 
     public boolean getNumero() {
-        if(this.numero.matches("^[0-9]$") &&
-                this.numero.length() >=1 && this.numero.length() <=10)
+        if(this.numero.matches("^[0-9]+$") &&
+                this.numero.length() >=1 && this.numero.length() <=10){
             return true;
+        }
         else return false;
     }
 
@@ -140,10 +145,10 @@ public class Pessoa {
     }
 
     public boolean getComplemento() {
-        if(this.complemento.length() == 0 || 
-                (this.complemento.matches("^[a-zA-Z0-9]$") && 
-                this.complemento.length() >= 4 && this.complemento.length() 
-                <= 100)) return true;
+        if(this.complemento.length() == 0 ||(this.complemento.length() >= 4 &&
+                this.complemento.length()<= 100)) {
+            return true;
+        }
         else return false;
     }
 
@@ -152,8 +157,9 @@ public class Pessoa {
     }
 
     public boolean getBairro() {
-        if(this.bairro.matches("^[a-zA-Z0-9]$") && this.bairro.length() 
-                >= 4 && this.bairro.length() <= 100) return true;
+        if(this.bairro.length()>= 4 && this.bairro.length() <= 100) {
+            return true;
+        }
         else return false;
     }
 
@@ -162,8 +168,9 @@ public class Pessoa {
     }
 
     public boolean getCidade() {
-        if(this.cidade.matches("^[a-zA-Z0-9]$") && this.cidade.length() 
-                >= 4 && this.cidade.length() <= 100) return true;
+        if(this.cidade.length()>= 4 && this.cidade.length() <= 100) {
+            return true;
+        }
         else return false; 
     }
 
@@ -179,21 +186,26 @@ public class Pessoa {
         this.uf = uf;
     }
 
-    public String getEmail() {
-        return email;
+    public boolean getEmail() {
+        if(this.email.length() >=8 && this.email.length() <= 100)return true;
+        else return false;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
+    public boolean getSenha() {
+        if(this.senha.length() >=8 && this.senha.length() <= 100)return true;
+        else return false;
+
     }
 
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
+
     
     
     

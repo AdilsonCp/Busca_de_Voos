@@ -1,0 +1,18 @@
+
+.btn-salvar{
+    -fx-background-color:  #0C57DB;
+    -fx-text-fill: white;
+}
+.btn-salvar:hover {
+    -fx-background-color:#05276B;
+}
+
+.btn-cancelar{
+    -fx-background-color:  white;
+    -fx-text-fill: #0C57DB;
+    -fx-border-color: #0C57DB;
+}
+
+.btn-cancelar:hover {
+    -fx-background-color:#DBDBDB;
+}

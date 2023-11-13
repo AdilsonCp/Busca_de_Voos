@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.stage.Screen;
 
 /**
  * JavaFX App
@@ -17,7 +18,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("inicio"));
+        scene = new Scene(loadFXML("login"));
+
         stage.setScene(scene);
         stage.setTitle("Buscar por Voos");
         stage.show();

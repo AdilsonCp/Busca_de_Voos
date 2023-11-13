@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="1260.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto.buscarvoos.HomeController">
+   <children>
+      <Pane layoutY="-2.0" prefHeight="400.0" prefWidth="1260.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <GridPane fx:id="rotas" layoutX="21.0" layoutY="137.0" prefHeight="208.0" prefWidth="1157.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="238.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.0" minWidth="0.0" prefWidth="206.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.0" minWidth="0.0" prefWidth="88.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="0.0" prefWidth="135.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="0.0" prefWidth="121.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="0.0" prefWidth="143.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="0.0" prefWidth="73.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="74.0" minWidth="0.0" prefWidth="54.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="41.0" minHeight="1.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="dataPartida" prefHeight="43.0" prefWidth="235.0" text="06/11/2023 - 15h:11m" GridPane.columnIndex="1" />
+                  <Label fx:id="paisOrigem" prefHeight="88.0" prefWidth="141.0" text="ESTADOS UNIDOS" GridPane.columnIndex="2" />
+                  <Label fx:id="cidadeOrigem" prefHeight="57.0" prefWidth="152.0" text="KRUGER NATIONAL PARK" GridPane.columnIndex="3" />
+                  <Label fx:id="paisDestino" prefHeight="64.0" prefWidth="138.0" text="ESTADOS UNIDOS" GridPane.columnIndex="4" />
+                  <Label fx:id="cidadeDestino" prefHeight="71.0" prefWidth="158.0" text="KRUGER NATIONAL PARK" GridPane.columnIndex="5" />
+                  <Label fx:id="preco" prefHeight="61.0" prefWidth="89.0" text="preco" GridPane.columnIndex="6" />
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="23.0" prefWidth="49.0" GridPane.columnIndex="7">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../imagens/icons8_Search_52px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label fx:id="empresa" prefHeight="43.0" prefWidth="277.0" text="GOL LINHAS AÉREAS INTELIGENTES S.A." />
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

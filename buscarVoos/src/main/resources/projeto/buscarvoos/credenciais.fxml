@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="panePrincipal" prefHeight="461.0" prefWidth="720.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto.buscarvoos.CredenciaisController">
+<AnchorPane id="AnchorPane" fx:id="panePrincipal" prefHeight="461.0" prefWidth="720.0" style="-fx-background-color: white;" stylesheets="@../../styles/telaCredencial.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto.buscarvoos.CredenciaisController">
    <children>
       <HBox layoutX="1.0" prefHeight="30.0" prefWidth="719.0">
          <children>
@@ -31,8 +32,8 @@
             </Button>
          </children>
       </HBox>
-      <BorderPane fx:id="paneView" layoutX="1.0" layoutY="30.0" prefHeight="202.0" prefWidth="719.0" style="-fx-background-color: #0C57DB;" />
-      <Button fx:id="btnProximo" layoutX="567.0" layoutY="252.0" mnemonicParsing="false" onAction="#avancar" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 30;">
+      <BorderPane fx:id="paneView" layoutX="1.0" layoutY="30.0" prefHeight="230.0" prefWidth="719.0" style="-fx-background-color: #0C57DB;" />
+      <Button fx:id="btnProximo" layoutX="567.0" layoutY="268.0" mnemonicParsing="false" onAction="#avancar" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 30;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -51,8 +52,11 @@
                   </ImageView>
                </children>
             </HBox>
-         </graphic></Button>
-      <Button fx:id="btnVoltar" layoutX="14.0" layoutY="251.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 30;">
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btnVoltar" layoutX="14.0" layoutY="267.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 30;">
          <graphic>
             <HBox prefHeight="27.0" prefWidth="103.0">
                <children>
@@ -71,16 +75,25 @@
                   </Label>
                </children>
             </HBox>
-         </graphic></Button>
-      <Button layoutX="222.0" layoutY="398.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="118.0" style="-fx-background-color: white; -fx-border-color: #0C57DB; -fx-border-width: 2;" text="Cancelar" textFill="#0c57db">
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btnCancelar" layoutX="222.0" layoutY="398.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="49.0" prefWidth="118.0" styleClass="btn-cancelar" text="Cancelar" textFill="#0c57db">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Button layoutX="381.0" layoutY="398.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="118.0" style="-fx-background-color: #0C57DB;" text="Salvar" textFill="WHITE">
+      <Button layoutX="381.0" layoutY="398.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="118.0" styleClass="btn-salvar" text="Salvar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
    </children>
 </AnchorPane>

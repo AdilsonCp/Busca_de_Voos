@@ -1,22 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="544.0" prefWidth="1051.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto.buscarvoos.PesquisaVooController">
+<AnchorPane id="AnchorPane" prefHeight="601.0" prefWidth="1038.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto.buscarvoos.PesquisaVooController">
    <children>
       <Label layoutX="21.0" layoutY="22.0" text="Pesquisar Voos" textFill="#5828c9">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <ScrollPane layoutX="21.0" layoutY="89.0" prefHeight="449.0" prefWidth="1000.0">
+      <ScrollPane layoutX="19.0" layoutY="138.0" prefHeight="449.0" prefWidth="1000.0">
          <content>
             <VBox fx:id="vboxRotas" prefHeight="447.0" prefWidth="1000.0" />
          </content>
       </ScrollPane>
+      <HBox layoutX="19.0" layoutY="83.0" prefHeight="39.0" prefWidth="944.0" style="-fx-border-color: #000000;">
+         <children>
+            <Pane prefHeight="39.0" prefWidth="228.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Button fx:id="btnEmpresa" layoutX="69.0" layoutY="4.0" mnemonicParsing="false" onAction="#empresaOrde" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #ffffff;">
+                     <graphic>
+                        <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                           <children>
+                              <Label prefHeight="22.0" prefWidth="59.0" text="Empresa">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="image" fitHeight="15.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../imagens/triangulo-preenchido.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="39.0" prefWidth="136.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Button layoutX="19.0" layoutY="7.0" mnemonicParsing="false" text="Data de Partida" />
+               </children>
+            </Pane>
+            <Pane prefHeight="39.0" prefWidth="120.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Button layoutX="11.0" layoutY="7.0" mnemonicParsing="false" text="Pais de Origem" />
+               </children>
+            </Pane>
+            <Pane prefHeight="39.0" prefWidth="133.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Button layoutX="10.0" layoutY="7.0" mnemonicParsing="false" text="Cidade de Origem" />
+               </children>
+            </Pane>
+            <Pane prefHeight="39.0" prefWidth="124.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Button layoutX="13.0" layoutY="7.0" mnemonicParsing="false" text="Pais de Destino" />
+               </children>
+            </Pane>
+            <Pane prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Button layoutX="11.0" layoutY="7.0" mnemonicParsing="false" text="Cidade de Destino" />
+               </children>
+            </Pane>
+            <Pane prefHeight="39.0" prefWidth="72.0" style="-fx-background-color: #FFFFFF;" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

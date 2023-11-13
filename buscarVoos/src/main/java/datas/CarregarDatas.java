@@ -36,7 +36,7 @@ public class CarregarDatas {
     }
     public ObservableList carregaMes(){
         Mes mes1 = new Mes("Janeiro");
-        Mes mes2 = new Mes("Favereiro");
+        Mes mes2 = new Mes("Fevereiro");
         Mes mes3 = new Mes("Março");
         Mes mes4 = new Mes("Abril");
         Mes mes5 = new Mes("Maio");

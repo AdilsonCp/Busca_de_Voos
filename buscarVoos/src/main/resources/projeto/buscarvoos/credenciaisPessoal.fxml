@@ -30,5 +30,9 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
+      <Label fx:id="avisoNome" layoutX="14.0" layoutY="63.0" visible="false" />
+      <Label fx:id="avisoCpf" layoutX="432.0" layoutY="63.0" visible="false" />
+      <Label fx:id="avisoGenero" layoutX="14.0" layoutY="135.0" text="Label" visible="false" />
+      <Label fx:id="avisoData" layoutX="313.0" layoutY="135.0" text="Label" visible="false" />
    </children>
 </Pane>
