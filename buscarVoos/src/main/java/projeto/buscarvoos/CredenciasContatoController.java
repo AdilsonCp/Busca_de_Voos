@@ -59,6 +59,28 @@ public class CredenciasContatoController extends PanesCadastrarController implem
         carregarUF();
     }
     
+    public String lbTelefone(){return textTelefone.getText();}
+    public String lbCep(){return textCEP.getText();}
+    public String lbEndereco(){return textEndereco.getText();}
+    public String lbNumero(){return textNumero.getText();}
+    public String lbComplemento(){return textComplemento.getText();}
+    public String lbBairro(){return textBairro.getText();}
+    public String lbCidade(){return textCidade.getText();}
+    public String lbUf(){return cbUF.getValue().toString();}
+    
+    public void setTelefone(String telefone){textTelefone.setText(telefone);}
+    public void setCep(String cep){textCEP.setText(cep);}
+    public void setEndereco(String endereco){textEndereco.setText(endereco);}
+    public void setNumero(String numero){textNumero.setText(numero);}
+    public void setComplemento(String complemento){
+        if(complemento == null)textComplemento.setText("");
+        else textComplemento.setText(complemento);
+    }
+    public void setBairro(String bairro){textBairro.setText(bairro);}
+    public void setCidade(String cidade){textCidade.setText(cidade);}
+    public void setUf(String uf){cbUF.setValue(uf);}
+ 
+ 
     public void carregarUF(){
         ObservableList<String> uf = FXCollections.observableArrayList(
             "Acre","Alagoas","Amapá","Amazonas","Bahia",

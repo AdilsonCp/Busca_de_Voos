@@ -82,7 +82,7 @@ public class ValidaFormataData {
             case "Novembro":
                 numMes = 11;
                 break;
-            case "DeZembro":
+            case "Dezembro":
                 numMes = 12;
                 break;
         }

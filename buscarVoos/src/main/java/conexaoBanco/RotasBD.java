@@ -14,20 +14,27 @@ import projeto.buscarvoos.Rotas;
  */
 public class RotasBD {
     
-    public List<Rotas> getListaRotas(){
     
+    public List<Rotas> getListaRotas(String paisOri, String cidadeOrig, String paisDes, String cidadeDes, String precoData){
+        
         Connection conn = new BDConexaoMySQL().getConnection();
 
         String sql = "SELECT empresa,"
                 + "date_format(data_horario_partida,\"%d/%m/%Y - %Hh:%mm\") as "
                 + "data_horario_partida,pais_origem, cidade_origem, "
                 + "pais_destino, cidade_destino,preco \n" +
-"	FROM rota_aereas WHERE data_horario_partida >= utc_timestamp();";
+"	FROM rota_aereas WHERE data_horario_partida >= utc_timestamp() AND "
+                + "pais_origem=? ;" ;//AND cidade_origem=? AND pais_destino=? AND cidade_destino=? AND preco <=?;";
 
         List<Rotas> list = new ArrayList<>();
         
         try{
             PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, paisOri);
+            /*ps.setString(2, cidadeOrig);
+            ps.setString(3, paisDes);
+            ps.setString(4, cidadeDes);
+            ps.setString(5, precoData);*/
             
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
@@ -48,5 +55,32 @@ public class RotasBD {
             System.out.println(ex);
         }
         return list;
+    }
+    
+    public List<String> getCidade(String pais){
+        Connection conn = new BDConexaoMySQL().getConnection();
+
+        String sql = "select cidades.cidade from cidades inner join paises on cidades.id_paises = paises.id_paises " +
+            " where paises.pais = ?";
+        
+        List<String> list = new ArrayList<>();
+        
+        try{
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, pais);
+            
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                String cidade = rs.getString("cidades.cidade");
+                list.add(cidade);
+            }
+            rs.close();
+            ps.close();
+            conn.close();
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return list;
+ 
     }
 }

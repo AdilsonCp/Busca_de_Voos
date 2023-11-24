@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import projeto.buscarvoos.LoginControlle;
 
 /**
  *
@@ -11,14 +12,24 @@ import java.sql.SQLException;
  */
 public class Login {
     
+    private String nome;
+    private String id;
+            
+    
     public boolean login(String email, String senha) {
+        
 
         //Criar uma conexão com o banco de dados
         Connection conexao = new BDConexaoMySQL().getConnection();
 
         //Preparar a consulta
-        String select = "SELECT * FROM credenciais WHERE email = ? "
-                + "AND senha = ?";
+        /*String select = "SELECT * FROM credenciais WHERE email = ? "
+                + "AND senha = ?";*/
+        
+        String select  = "select pessoas.nome, pessoas.pessoa_id "               
+		+ "from pessoas inner join credenciais on pessoas.pessoa_id = credenciais.pessoa_id "
+                + "where email = ? and senha = ?";
+     
         try {
             PreparedStatement ps = conexao.prepareStatement(select);
             ps.setString(1, email);
@@ -26,11 +37,10 @@ public class Login {
 
             //Executar a consulta e obter o resultado
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                String u = rs.getString("email");
-                String s = rs.getString("senha");
-                System.out.println("email: " + u);
-                System.out.println("senha: " + s);
+            if (rs.next()) {
+                this.id = rs.getString("pessoa_id");
+                this.nome = rs.getString("nome");
+                //System.out.println(this.id);
                 return true;
             }
             
@@ -45,4 +55,6 @@ public class Login {
         }
         return false;
     }
+    public String getId(){return this.id;}
+    public String getNome(){return this.nome;}
 }

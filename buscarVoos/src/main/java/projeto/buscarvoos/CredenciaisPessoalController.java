@@ -1,5 +1,6 @@
 package projeto.buscarvoos;
 
+import conexaoBanco.CredenciaisBD;
 import datas.Ano;
 import datas.CarregarDatas;
 import datas.Dia;
@@ -48,13 +49,16 @@ public class CredenciaisPessoalController extends PanesCadastrarController imple
     CarregarDatas datas = new CarregarDatas();
     ValidaFormataData vFData = new ValidaFormataData();
     
+    CredenciaisBD credenciais = new CredenciaisBD();
     Pessoa pessoa = new Pessoa();
+    
     
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         carregarDatas();
         carregarGenero();
+        //textNome.setStyle("-fx-text-box-border: #000000;");
     }
 
     public void carregarGenero() {
@@ -73,6 +77,41 @@ public class CredenciaisPessoalController extends PanesCadastrarController imple
         cbAno.setItems(datas.carregaAno());
     }
     
+    public String lbNome(){
+        return textNome.getText();
+    }
+    public String lbCpf(){
+        return textCpf.getText();
+    }
+    public String lbGenero(){
+        return cbGenero.getValue();
+    }
+    public String lbData(){
+        String dataNasc = cbAno.getValue().toString()+"-"+vFData.numMes( cbMes.getValue().toString())+"-"+
+                cbDia.getValue().toString();
+                
+        return dataNasc;
+    }
+    
+    public void setNome(String nome){
+        textNome.setText(nome);
+    }
+    public void setCpf(String cpf){
+        textCpf.setText(cpf);
+    }
+    public void setGenero(String genero){
+        cbGenero.setValue(genero);
+    }
+    public void setDataNasc(String dia, String mes, String ano){
+        Dia diaSelecionado = new Dia(Integer.parseInt(dia)); 
+        Mes mesSelecionado = new Mes(vFData.strMes( Integer.parseInt(mes)));
+        Ano anoSelecionado = new Ano(Integer.parseInt(mes));
+        cbDia.setValue(diaSelecionado);
+        cbMes.setValue(mesSelecionado);
+        cbAno.setValue(anoSelecionado);
+    }
+    
+    
 
       
     @Override
@@ -82,17 +121,21 @@ public class CredenciaisPessoalController extends PanesCadastrarController imple
         
         if(cbDia.getValue() != null && cbMes.getValue() != null && 
                 cbAno.getValue() != null && cbGenero.getValue() != null){
+            
             pessoa.setDiaNasc(cbDia.getValue().toString());
             pessoa.setMesNasc(cbMes.getValue().toString());
             pessoa.setAnoNasc(cbAno.getValue().toString());
+            pessoa.setGenero(cbGenero.getValue());
             
             vFData.validaData(pessoa.getMesNasc(), 
                     pessoa.getDiaNasc());
         
-            if(pessoa.getNome() && pessoa.getCpf() && 
-                    cbGenero.getValue() != null &&
-                    vFData.validaData(pessoa.getMesNasc(), 
-                            pessoa.getDiaNasc())) return 1;
+            if(pessoa.getNome() && pessoa.getCpf() && cbGenero.getValue() != null &&
+                    vFData.validaData(pessoa.getMesNasc(), pessoa.getDiaNasc()) &&
+                   !credenciais.selectCpf(textCpf.getText())){
+                
+                return 1;
+            }
             else return 0;
             
         }else return 0;
@@ -101,23 +144,25 @@ public class CredenciaisPessoalController extends PanesCadastrarController imple
     @Override
     public void avisos(){
         
-       
-        if(!pessoa.getNome())configAvisos(avisoNome, 
-                "Nome Inválido", true);
+       //Verifica o nome
+        if(!pessoa.getNome())configAvisos(avisoNome,  "Nome Inválido", true);
         else configAvisos(avisoNome, null, false);
 
-        if(!pessoa.getCpf())configAvisos(avisoCpf, 
-                "CPF Inválido", true);
+        //Verifica se o cpf é válido e se ele já é cadastrado
+        if(!pessoa.getCpf() || credenciais.selectCpf(textCpf.getText())){
+            if(credenciais.selectCpf(textCpf.getText()))configAvisos(avisoCpf, "CPF já cadastrado", true);
+            else configAvisos(avisoCpf, "CPF Inválido", true);
+        }
         else configAvisos(avisoCpf, null, false);
 
+        //Verifica se o campo data está vázio e se a data está inválida
         if(cbDia.getValue() == null || cbMes.getValue() == null || 
-                cbAno.getValue() == null)configAvisos(avisoData, 
-                        "Campo Vázio", true);
+                cbAno.getValue() == null)configAvisos(avisoData, "Campo Vázio", true);
         else if(!vFData.validaData(cbMes.getValue().toString(),
-                cbDia.getValue().toString()))configAvisos(avisoData, 
-                        "Data Inválida", true);
+                cbDia.getValue().toString()))configAvisos(avisoData, "Data Inválida", true);
         else configAvisos(avisoData, null, false);
-
+        
+        //Verifica se o campo genero está vázio
         if(cbGenero.getValue() == null)configAvisos(avisoGenero, 
                 "Campo Vázio", true);
         else configAvisos(avisoGenero, null, false);

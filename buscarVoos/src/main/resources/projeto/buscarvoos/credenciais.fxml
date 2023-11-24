@@ -87,7 +87,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="381.0" layoutY="398.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="118.0" styleClass="btn-salvar" text="Salvar" textFill="WHITE">
+      <Button fx:id="btnSalvar" layoutX="381.0" layoutY="398.0" mnemonicParsing="false" onAction="#salvar" prefHeight="49.0" prefWidth="118.0" styleClass="btn-salvar" text="Salvar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

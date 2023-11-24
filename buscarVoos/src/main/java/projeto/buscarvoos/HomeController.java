@@ -22,6 +22,7 @@ import javafx.scene.layout.GridPane;
  *
  * @author adils
  */
+
 public class HomeController implements Initializable {
     
     @FXML
@@ -54,7 +55,7 @@ public class HomeController implements Initializable {
     }    
     
 
-    public void buscarVoo() {
+   /*public void buscarVoo() {
         if (listaRotas == null) {
             RotasBD rotasBD = new RotasBD();
             listaRotas = rotasBD.getListaRotas();
@@ -65,7 +66,7 @@ public class HomeController implements Initializable {
             gridPane.setHgap(10);
             
             int j=0;   
-            for(int i=0; i<1; i++){/*coluna,linha*/
+            for(int i=0; i<1; i++){
                 j =0;
 
 
@@ -106,10 +107,50 @@ public class HomeController implements Initializable {
 
             }
         }
+    }*/
+    
+    public void buscarVoo() {
+        if (listaRotas == null) {
+            RotasBD rotasBD = new RotasBD();
+            //listaRotas = rotasBD.getListaRotas();
+
+            for (Rotas rot : listaRotas) {
+                // Cria um novo GridPane para cada rota
+                GridPane gridPane = new GridPane();
+                gridPane.setHgap(10);
+
+                int row = 0;
+
+                // Adiciona os labels ao GridPane
+                Label empresaLabel = new Label(rot.getEmpresa());
+                gridPane.add(empresaLabel, 0, row++);
+
+                Label dataPartidaLabel = new Label(rot.getDataPartida());
+                gridPane.add(dataPartidaLabel, 0, row++);
+
+                Label paisOrigemLabel = new Label(rot.getPaisOrigem());
+                gridPane.add(paisOrigemLabel, 0, row++);
+
+                Label cidadeOrigemLabel = new Label(rot.getCidadeOrigem());
+                gridPane.add(cidadeOrigemLabel, 0, row++);
+
+                Label paisDestinoLabel = new Label(rot.getPaisDestino());
+                gridPane.add(paisDestinoLabel, 0, row++);
+
+                Label cidadeDestinoLabel = new Label(rot.getCidadeDestino());
+                gridPane.add(cidadeDestinoLabel, 0, row++);
+
+                Label precoLabel = new Label(Double.toString(rot.getPreco()));
+                gridPane.add(precoLabel, 0, row);
+
+                // Adiciona o GridPane ao rotas GridPane
+                rotas.add(gridPane, 0, listaRotas.indexOf(rot));
+            }
+        }
     }
 }
      
-        
+      
    
 
 

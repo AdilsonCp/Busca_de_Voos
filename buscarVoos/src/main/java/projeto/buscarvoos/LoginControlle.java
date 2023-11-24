@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import conexaoBanco.Login;
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 
 
@@ -22,6 +24,15 @@ public class LoginControlle implements Initializable {
     private TextField textUsuario;
     @FXML
     private TextField textSenha;
+    @FXML
+    private Label textErro;
+    
+    private String nome;
+    private String id;
+    
+    Login loginBD = new Login();//Banco de dados
+
+    
     
     
     
@@ -30,8 +41,9 @@ public class LoginControlle implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        
+        // TODO 
+        textUsuario.setText("maria@hotmail.com");
+        textSenha.setText("Horto123");
     } 
     
     @FXML
@@ -69,11 +81,11 @@ public class LoginControlle implements Initializable {
         stage.setFullScreen(true);
         
         // Defina a posição da nova janela para o centro da tela principal
-        Screen sc = Screen.getPrimary();
+       /* Screen sc = Screen.getPrimary();
         double larguraTela = sc.getBounds().getWidth();
         double alturaTela = sc.getBounds().getHeight();
-        stage.setX((larguraTela - 1038) / 2); // Defina a posição X
-        stage.setY((alturaTela - 601) / 2);  // Defina a posição Y
+        stage.setX((larguraTela - 1500) / 2); // Defina a posição X
+        stage.setY((alturaTela - 1860) / 2);  // Defina a posição Y*/
         
         
         //Exibir a cena
@@ -84,21 +96,57 @@ public class LoginControlle implements Initializable {
     
     @FXML
     public void logar() throws IOException{
-        System.out.println("Apertado");
-        
         
         String email = textUsuario.getText();
         String senha = textSenha.getText();
         
-        Login login = new Login();
-        boolean acesso = login.login(email, senha);
+        boolean acesso = loginBD.login(email, senha);
+        
         
         if(acesso){
-            System.out.println("Acessado");
+            textErro.setVisible(false);
+            
+            //Trocar a cena
+            //Pode usar qualquer componente vinculado a classe
+            Stage stage = (Stage) btncadLogin.getScene().getWindow();
+
+            //Carregar a cena que desejamos exibir
+            FXMLLoader tela = new FXMLLoader(App.class.getResource("perfil.fxml"));
+
+            //Criar uma nova cena
+            Scene cena = new Scene(tela.load());
+            
+            setId();
+            setNome();
+            System.out.println(this.id+" "+this.nome);
+            
+
+            PerfilController perfil = tela.getController();
+            perfil.setLbNome(this.nome);//passar o nome do usuario 
+            perfil.initializeData(this.nome, this.id);
+            
+            // Defina a posição da nova janela para o centro da tela principal
+            Screen sc = Screen.getPrimary();
+            double larguraTela = sc.getBounds().getWidth();
+            double alturaTela = sc.getBounds().getHeight();
+            stage.setX((larguraTela - 1038) / 2); // Defina a posição X
+            stage.setY((alturaTela - 731) / 2);  // Defina a posição Y
+
+            //Exibir a cena
+            stage.setScene(cena);
+            stage.setTitle("Entrar");
+            stage.show();
+
+        
         }
         else{
-            System.out.println("Acesso negado");
+            textErro.setText("Acesso negado");
+            textErro.setTextFill(Color.RED);
+            textErro.setVisible(true);
+            
         }
+        
+        
         
         /*Janela de teste*/
         if(email.equals("teste")){
@@ -120,4 +168,7 @@ public class LoginControlle implements Initializable {
         
     }
     
+    public void setNome(){this.nome = loginBD.getNome();}
+    public void setId(){this.id = loginBD.getId();}
+ 
 }

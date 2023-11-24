@@ -1,16 +1,27 @@
+.btn-pesquisar{
+    -fx-background-color:#0C57DB;
+    -fx-text-fill: #ffffff;
+}
+.btn-pesquisar:hover{
+    -fx-background-color:#ffffff;
+    -fx-text-fill: #000000;
+}
 
 .btn-cadastrar{
-    -fx-background-color: black;
-    -fx-text-fill: white;
-    -fx-border-radius: 10;
-    -fx-background-radius: 10;
-
+    -fx-background-color:   #CDE2E8;
+    -fx-text-fill:  #0C57DB;
 }
-
 .btn-cadastrar:hover{
-    -fx-background-color: white;
-    -fx-text-fill: black;
-    -fx-border-color: black;
-    -fx-border-radius: 10;
-    -fx-background-radius: 10;
+    -fx-text-fill: #000000;
 }
+
+.btn-acessar{
+    -fx-background-color:  #00FF7F;
+    -fx-text-fill: #000000;
+    -fx-background-radius: 30;
+}
+.btn-acessar:hover{
+    -fx-background-color: #00964B;
+    -fx-text-fill: #000000;
+}
+

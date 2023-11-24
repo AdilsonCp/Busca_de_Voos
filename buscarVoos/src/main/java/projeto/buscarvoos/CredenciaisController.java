@@ -2,8 +2,6 @@ package projeto.buscarvoos;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import model.PanesCadastrarController;
+import conexaoBanco.CredenciaisBD;
+import javafx.scene.control.Alert;
+
 
 /**
  * FXML Controller class
@@ -28,7 +28,9 @@ public class CredenciaisController implements Initializable {
     private Pane paneContato;
     private Pane paneUsuarioSenha;
     private Pane paneAtivo;
-    Class<?> classeDoObjeto;
+    private boolean flag;
+    
+    private String id;
 
     @FXML
     private BorderPane paneView;
@@ -51,13 +53,20 @@ public class CredenciaisController implements Initializable {
     private CredenciasContatoController ccController;
     private CredenciaisUsuarioSenhaController usController;
     
-    Pessoa pessoa = new Pessoa();
-    
-    //flag pra dizer se os dados são válidos ou não
-    int isValido = 0;
+    CredenciaisBD credenciais = new CredenciaisBD();
+
+
+    public void initializeData(String id, boolean flag) {
+        this.flag = flag;//true se for para visualizar seus dados
+        this.id =id;
+        credenciais.carregarPessoa(this.id);
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.flag = false;//false se for para cadastro
+        credenciais.setCredenciaisController(this);
         loadPanes();
     }
 
@@ -81,6 +90,8 @@ public class CredenciaisController implements Initializable {
             btnPessoal.setDisable(false);
             btnVoltar.setDisable(true);
             btnProximo.setDisable(false);
+            
+            
 
 
         } catch (IOException ex) {
@@ -92,28 +103,16 @@ public class CredenciaisController implements Initializable {
     public void avancar() {      
         if (paneAtivo == panePessoal) {
             if(cpController.validarCampos() == 1){
-                //cpController.avisos();
-                configPanes(cpController, paneContato, btnInfoContato, btnPessoal, true, false, false, false);
-                /*paneView.setCenter(paneContato);
-                paneAtivo = paneContato;
-                btnPessoal.setDisable(true);
-                btnInfoContato.setDisable(false);
-                btnVoltar.setDisable(false);
-                btnProximo.setDisable(false);*/
+                configPanes(cpController, paneContato, btnInfoContato,
+                        btnPessoal, true, false, false, false);
             }else{
                 cpController.avisos();
             }
 
         } else if (paneAtivo == paneContato) {
             if(ccController.validarCampos() == 1){
-               // ccController.avisos();
-                configPanes(ccController,paneUsuarioSenha, btnUsuarioSenha, btnInfoContato, true, false, false, true);
-                /*paneView.setCenter(paneUsuarioSenha);
-                paneAtivo = paneUsuarioSenha;
-                btnInfoContato.setDisable(true);
-                btnUsuarioSenha.setDisable(false);
-                btnProximo.setDisable(true);
-                btnVoltar.setDisable(false);*/
+                configPanes(ccController,paneUsuarioSenha, btnUsuarioSenha,
+                        btnInfoContato, true, false, false, true);
             }else{
                 ccController.avisos();
             }
@@ -125,27 +124,15 @@ public class CredenciaisController implements Initializable {
 
         if (paneAtivo == paneUsuarioSenha) {
             if(usController.validarCampos() ==1){
-               // usController.avisos();
-                configPanes(usController,paneContato, btnInfoContato, btnUsuarioSenha, true, false, false, false);
-                /*paneView.setCenter(paneContato);
-                paneAtivo = paneContato;
-                btnUsuarioSenha.setDisable(true);
-                btnInfoContato.setDisable(false);
-                btnVoltar.setDisable(false);
-                btnProximo.setDisable(false);*/
+                configPanes(usController,paneContato, btnInfoContato, 
+                        btnUsuarioSenha, true, false, false, false);
             }else{
                 usController.avisos();
             }
         } else if (paneAtivo == paneContato) {
             if(ccController.validarCampos() == 1){
-                //ccController.avisos();
-                configPanes(ccController, panePessoal, btnInfoContato, btnPessoal, false, true, true, false);
-                /*paneView.setCenter(panePessoal);
-                paneAtivo = panePessoal;
-                btnPessoal.setDisable(false);
-                btnInfoContato.setDisable(true);
-                btnVoltar.setDisable(true);
-                btnProximo.setDisable(false);*/
+                configPanes(ccController, panePessoal, btnInfoContato,
+                        btnPessoal, false, true, true, false);
             }else{
                 ccController.avisos();
             }
@@ -154,20 +141,64 @@ public class CredenciaisController implements Initializable {
 
     @FXML
     public void cancelar() throws IOException {
-        //Trocar a cena
-        //Pode usar qualquer componente vinculado a classe
-        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+        
+        if(this.id == null){
+            //Trocar a cena
+            //Pode usar qualquer componente vinculado a classe
+            Stage stage = (Stage) btnCancelar.getScene().getWindow();
 
-        //Carregar a cena que desejamos exibir
-        FXMLLoader tela = new FXMLLoader(App.class.getResource("login.fxml"));
+            //Carregar a cena que desejamos exibir
+            FXMLLoader tela = new FXMLLoader(App.class.getResource("login.fxml"));
 
-        //Criar uma nova cena
-        Scene cena = new Scene(tela.load());
+            //Criar uma nova cena
+            Scene cena = new Scene(tela.load());
 
-        //Exibir a cena
-        stage.setScene(cena);
-        stage.setTitle("Entrar");
-        stage.show();
+            //Exibir a cena
+            stage.setScene(cena);
+            stage.setTitle("Entrar");
+            stage.show();
+        }
+        else{
+            ((Stage) btnPessoal.getScene().getWindow()).close();
+        }
+    }
+ 
+                
+    
+    @FXML
+    public void salvar() throws IOException{
+        
+        //try{
+            if(cpController.validarCampos() == 1 && ccController.validarCampos() == 1 && usController.validarCampos() == 1){   
+                cpController.avisos();
+                ccController.avisos();
+                usController.avisos();
+
+                credenciais.insertPessoa(cpController.lbNome(), cpController.lbCpf(), cpController.lbGenero(), cpController.lbData());
+                credenciais.insertEndereco(ccController.lbCep(), ccController.lbEndereco(), ccController.lbNumero(), ccController.lbComplemento(), ccController.lbBairro(), ccController.lbCidade(), ccController.lbUf());
+                credenciais.insertCredenciais(usController.lbEmail(), usController.lbSenha());
+                credenciais.insertContato(usController.lbEmail(), ccController.lbTelefone());
+
+                System.out.println("Cadastro finalizado");
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText("Cadastro finalizado");
+                alert.show();
+
+                if(this.flag == false)carregarPerfil();
+                else ((Stage) btnPessoal.getScene().getWindow()).close();
+
+
+            }
+            else {
+                if(paneAtivo == panePessoal)cpController.avisos();
+                else if(paneAtivo == paneContato)ccController.avisos();
+                else if(paneAtivo == paneUsuarioSenha)usController.avisos();
+            }
+        /*}catch(NullPointerException ex){
+            System.out.println("Preencha todos os campo em vermelho");
+        }*/
+
     }
     
     public void configPanes(Object controller, Pane paneNode, Button btnNew, Button btnOld, boolean btnAtivo, boolean btnNot,
@@ -175,7 +206,6 @@ public class CredenciaisController implements Initializable {
         
         if (controller instanceof CredenciaisPessoalController){
             cpController.avisos();
-
         }
         else if (controller instanceof CredenciasContatoController){
             ccController.avisos();
@@ -193,18 +223,53 @@ public class CredenciaisController implements Initializable {
         
     }
     
-    
+    public void carregarPerfil() throws IOException{
+        //Trocar a cena
+        //Pode usar qualquer componente vinculado a classe
+        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+
+        //Carregar a cena que desejamos exibir
+        FXMLLoader tela = new FXMLLoader(App.class.getResource("perfil.fxml"));
+
+        //Criar uma nova cena
+        Scene cena = new Scene(tela.load());
+
+        //Exibir a cena
+        stage.setScene(cena);
+        stage.setTitle("Entrar");
+        stage.show();
+    }
     
 
+    public void setId(String id){
+        this.id = id;
+    }
+    public Button buttonSalvar(){
+        return btnSalvar;
+    }
     
+    public void carregarRegistro(String nome, String cpf, String genero, String dia, String mes, String ano,
+                                    String telefon, String cep, String  endereco, String numero, String complemento,
+                                    String bairro, String cidade, String uf,
+                                    String email, String senha){
+        
+        cpController.setNome(nome);
+        cpController.setCpf(cpf);
+        cpController.setGenero(genero);
+        cpController.setDataNasc(dia, mes, ano);
+        
+        ccController.setTelefone(telefon);
+        ccController.setCep(cep);
+        ccController.setEndereco(endereco);
+        ccController.setNumero(numero);
+        ccController.setComplemento(complemento);
+        ccController.setBairro(bairro);
+        ccController.setCidade(cidade);
+        ccController.setUf(uf);
+        
+        usController.setEmail(email);
+        usController.setSenha(senha);
+    }
     
-
-    
-  
- 
-
-
-    
-  
 
 }

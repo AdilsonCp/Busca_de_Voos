@@ -4,6 +4,7 @@
  */
 package projeto.buscarvoos;
 
+import conexaoBanco.CredenciaisBD;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -30,12 +31,27 @@ public class CredenciaisUsuarioSenhaController extends PanesCadastrarController 
     @FXML
     private Label avisoSenha;
     
+    CredenciaisBD credenciais = new CredenciaisBD();
     Pessoa pessoa = new Pessoa();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    public String lbEmail(){
+        return textEmail.getText();
+    }
+    public String lbSenha (){
+        return textSenha.getText();
+    }
+    public void setEmail(String email){
+        textEmail.setText(email);
+    }
+    public void setSenha(String senha){
+        textSenha.setText(senha);
+    }
+            
     
     
     
@@ -45,16 +61,21 @@ public class CredenciaisUsuarioSenhaController extends PanesCadastrarController 
         pessoa.setEmail(textEmail.getText());
         pessoa.setSenha(textSenha.getText());
         
-        if(pessoa.getEmail() && pessoa.getSenha())return 1;
+        if(pessoa.getEmail() && pessoa.getSenha() && !credenciais.selectEmai(textEmail.getText()))return 1;
         else return 0;
     }
     
     @Override
     public void avisos(){
-        if(!pessoa.getEmail())configAvisos(avisoEmail, 
-                "Email Inválido", true);
+        
+        //Verifica se o Emial já cadastrado e se ele é válido
+        if(!pessoa.getEmail() || credenciais.selectEmai(textEmail.getText())){
+            if(credenciais.selectEmai(textEmail.getText()))configAvisos(avisoEmail, "Email já é cadastrado", true);
+            else configAvisos(avisoEmail, "Email Invalido", true);
+        }
         else configAvisos(avisoEmail, null, false);
         
+        //Verifica se a senha é válida
         if(!pessoa.getSenha())configAvisos(avisoSenha, 
                 "Senha Inválida", true);
         else configAvisos(avisoSenha, null, false);
