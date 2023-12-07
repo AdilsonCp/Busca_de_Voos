@@ -1,4 +1,4 @@
-insert into paises(pais) values
+insert into `cadastro`.`paises`(pais) values
 	('ESTADOS UNIDOS'),
     ('CHINA'),
     ('JAPÃO'),
@@ -23,3 +23,4 @@ insert into paises(pais) values
     ('ARGENTINA'),
     ('PERU'),
     ('PORTUGAL');
+    

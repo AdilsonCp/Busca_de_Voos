@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="364.0" prefWidth="551.0" stylesheets="@../style/loginStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <children>
+      <ImageView fitHeight="388.0" fitWidth="551.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagens/nuvem.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="141.0" layoutY="46.0" opacity="0.83" prefHeight="276.0" prefWidth="270.0" style="-fx-background-color: #CDE2E8;">
+         <children>
+            <Label layoutX="22.0" layoutY="14.0" text="Bem-vindo de volta">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txUsuario" layoutX="43.0" layoutY="78.0" prefHeight="25.0" prefWidth="184.0" promptText="Usuário" />
+            <PasswordField fx:id="psSenha" layoutX="43.0" layoutY="113.0" prefHeight="25.0" prefWidth="184.0" promptText="Senha" />
+            <Button layoutX="43.0" layoutY="155.0" mnemonicParsing="false" onAction="#logar" prefHeight="25.0" prefWidth="184.0" styleClass="btn-acessar" text="Acessar">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <effect>
+                  <Blend mode="DARKEN" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="lbErro" layoutX="47.0" layoutY="213.0" prefHeight="17.0" prefWidth="184.0" />
+            <Label layoutX="37.0" layoutY="190.0" text="Não possui cadastro?" textFill="#111111">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button layoutX="170.0" layoutY="188.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#cadastro" prefHeight="25.0" prefWidth="70.0" style="-fx-underline: true;" styleClass="btn-cadastrar" text="Cadastrar" textFill="WHITE">
+               <effect>
+                  <DropShadow height="2.0" radius="0.5" width="2.0" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="79.0" layoutY="249.0" mnemonicParsing="false" onAction="#buscarVoo" prefHeight="26.0" prefWidth="133.0" style="-fx-background-radius: 30;" styleClass="btn-pesquisar" text="Pesquisar voo">
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../buscarVoos/src/main/resources/imagens/icons8_Search_52px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <effect>
+                  <DropShadow height="2.0" radius="0.5" width="2.0" />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

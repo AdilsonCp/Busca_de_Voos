@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="231.0" prefWidth="664.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controller.PaneContatoController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Telefone/Celular:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txTelefone" layoutX="14.0" layoutY="38.0" style="-fx-background-color: white;" />
+      <TextField fx:id="txCEP" layoutX="173.0" layoutY="38.0" prefHeight="25.0" prefWidth="101.0" style="-fx-background-color: white;" />
+      <TextField fx:id="txEndereco" layoutX="290.0" layoutY="38.0" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: white;" />
+      <TextField fx:id="txComplemento" layoutX="162.0" layoutY="108.0" prefHeight="25.0" prefWidth="259.0" style="-fx-background-color: white;" />
+      <TextField fx:id="txNumero" layoutX="14.0" layoutY="108.0" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: white;" />
+      <Label layoutX="173.0" layoutY="14.0" text="CEP:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="290.0" layoutY="14.0" text="Endereço:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="83.0" text="Número:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="160.0" layoutY="83.0" text="Complemento:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txBairro" layoutX="15.0" layoutY="178.0" prefHeight="25.0" prefWidth="182.0" style="-fx-background-color: white;" />
+      <Label layoutX="15.0" layoutY="153.0" text="Bairro:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txCidade" layoutX="218.0" layoutY="178.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: white;" />
+      <Label layoutX="220.0" layoutY="153.0" text="Cidade:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="460.0" layoutY="154.0" text="Estado:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbUF" layoutX="460.0" layoutY="178.0" prefHeight="25.0" prefWidth="161.0" promptText="UF" style="-fx-background-color: white;" />
+      <Label fx:id="avisoTelefone" layoutX="14.0" layoutY="63.0" prefHeight="17.0" prefWidth="118.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="avisoCep" layoutX="173.0" layoutY="63.0" prefHeight="17.0" prefWidth="101.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="avisoEndereco" layoutX="290.0" layoutY="63.0" prefHeight="17.0" prefWidth="182.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="avisoNumero" layoutX="14.0" layoutY="133.0" prefHeight="17.0" prefWidth="111.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="avisoComplemento" layoutX="160.0" layoutY="133.0" prefHeight="17.0" prefWidth="149.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="avisoBairro" layoutX="14.0" layoutY="203.0" prefHeight="17.0" prefWidth="149.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="avisoCidade" layoutX="216.0" layoutY="203.0" prefHeight="17.0" prefWidth="149.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="avisoUf" layoutX="460.0" layoutY="203.0" prefHeight="17.0" prefWidth="149.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

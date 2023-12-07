@@ -1,0 +1,17 @@
+
+.btn-buttons{
+     -fx-background-color: #0C57DB;
+     -fx-text-fill: #ffffff;
+}
+.btn-buttons:hover{
+     -fx-background-color: #000547;
+}
+
+.btn-buttonsSair{
+     -fx-background-color: #FA1B00;
+}
+.btn-buttonsSair:hover{
+     -fx-background-color: #680400;
+}
+
+

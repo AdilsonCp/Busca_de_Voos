@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="vboxRotas" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="1060.0" style="-fx-background-radius: 10; -fx-background-insets: 1; -fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RotasController">
+   <children>
+      <Label fx:id="txCompAerea" prefHeight="48.0" prefWidth="228.0" styleClass="rotas-item" text="empresa">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="txDataPartida" alignment="CENTER" prefHeight="48.0" prefWidth="136.0" styleClass="rotas-item" text="2023-07-01 20:51:00">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="txPaisPartida" alignment="CENTER" prefHeight="48.0" prefWidth="120.0" styleClass="rotas-item" text="pais_origem">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="txCidadePartida" alignment="CENTER" prefHeight="48.0" prefWidth="133.0" styleClass="rotas-item" text="cidade_origem">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="txPaisDestino" alignment="CENTER" prefHeight="48.0" prefWidth="124.0" styleClass="rotas-item" text="pais_destino">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="txCidadeDestino" alignment="CENTER" prefHeight="48.0" prefWidth="136.0" styleClass="rotas-item" text="cidade_destino">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="txPreco" alignment="CENTER" prefHeight="48.0" prefWidth="109.0" styleClass="rotas-item" text="11000.60">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="txId" prefHeight="48.0" prefWidth="75.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+   </children>
+</HBox>

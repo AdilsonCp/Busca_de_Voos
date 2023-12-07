@@ -1,0 +1,18 @@
+.btn-pag{
+    -fx-background-color:  #0C57DB;
+    -fx-text-fill: white;
+}
+.btn-pag:hover {
+    -fx-background-color:#05276B;
+}
+
+.btn-conf{
+    -fx-background-color:   #18E600;
+    -fx-text-fill: white;
+}
+.btn-conf:hover {
+    -fx-background-color: #18AA00;
+    -fx-text-fill: black;
+}
+
+

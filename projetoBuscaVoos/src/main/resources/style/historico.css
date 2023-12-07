@@ -1,0 +1,15 @@
+.btn-seleciona{
+    -fx-background-color:  #0C57DB;
+    -fx-text-fill: white;
+}
+.btn-seleciona:hover {
+    -fx-background-color:#05276B;
+}
+
+.btn-delete{
+    -fx-background-color:  #FF0500;
+    -fx-text-fill: black;
+}
+.btn-delete:hover {
+    -fx-background-color:#A50500;
+}
